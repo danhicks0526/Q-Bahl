@@ -23,12 +23,15 @@ public class AirEnemyMovement : MonoBehaviour {
 	float attackDist = 5.0f;
 
     GameObject lazerEffect;
+    GameObject lazerCharge;
+    GameObject currCharge;
     GameObject laserBeamClone;
     bool isCoolingLazer;
 
 	// Use this for initialization
 	void Start () {
         lazerEffect = Resources.Load("Prefabs/Enemy/EnemyLazerBeam") as GameObject;
+        lazerCharge = Resources.Load("Prefabs/Enemy/AirEnemyCharge") as GameObject;
 		player = GameObject.FindGameObjectWithTag ("Player");
 		groundObjs = GameObject.FindGameObjectsWithTag ("Ground");
 		wandering = true;
@@ -101,7 +104,7 @@ public class AirEnemyMovement : MonoBehaviour {
                     if (!isCoolingLazer)
                     {
                        // Vector3 laserDir = (player.transform.position - transform.FindChild("LazerFireLoc").transform.position);
-                        
+                        currCharge = (GameObject)Instantiate(lazerCharge, transform.FindChild("LazerFireLoc").transform.position, Quaternion.identity);
                         isCoolingLazer = true;
                         Invoke("shootLazer", 1);
                         Invoke("resetCoolingLazer", 5);
@@ -172,6 +175,7 @@ public class AirEnemyMovement : MonoBehaviour {
     public void destroyLazer()
     {
         CancelInvoke("addDamage");
+        Destroy(currCharge);
         Destroy(GetComponent<LineRenderer>());
     }
 
