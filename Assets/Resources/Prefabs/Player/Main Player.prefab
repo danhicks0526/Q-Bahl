@@ -881,6 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371b16cd4ea02418b970d24a973d3660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  current_form: {fileID: 0}
 --- !u!114 &11405504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -989,7 +990,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1499fcbe6a5744068b022aa1950a161b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHealth: 100
   currentHealth: 0
+  currentLives: 0
 --- !u!114 &11440816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1001,7 +1004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d082ad17113ba454f822fdf32b883ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 300
+  jumpForce: 600
+  movementDir: 0
 --- !u!114 &11458562
 MonoBehaviour:
   m_ObjectHideFlags: 1
